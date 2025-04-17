@@ -4,67 +4,121 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Magallanes District Online Services</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            background-color: #f0f0f0;
+            background-color: #f5f5f5;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
         
         .header {
-            background: linear-gradient(to right, #8e9eab, #a0a9b8);
-            padding: 10px 20px;
+            background-color: rgba(212, 210, 210, 0.9);
+            padding: 12px 20px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            border-bottom: 4px solid #4a235a;
+            border-bottom: 4px solid #2e86c1;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
         }
         
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            width: 33.33%;
         }
         
         .logo {
-            width: 40px;
-            height: 40px;
+            width: 65px;
+            height: 65px;
             background-color: #fff;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            border: 2px solid #f0f0f0;
+            transition: transform 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .logo img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+        
+        .title-container {
+            width: 33.33%;
+            display: flex;
+            justify-content: center;
         }
         
         .title {
-            background-color: #333;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 5px;
+            background-color: transparent;
+            color: black;
+            padding: 8px 18px;
+            border-radius: 6px;
             font-weight: bold;
+            font-size: 20px;
             text-align: center;
+            letter-spacing: 1px;
         }
         
         .right-logos {
             display: flex;
-            gap: 10px;
+            justify-content: flex-end;
+            gap: 12px;
+            width: 33.33%;
+        }
+        
+        .deped-logo {
+            width: 150px;
+            height: 65px;
+            background-color: #fff;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            border: 2px solid #f0f0f0;
+            transition: transform 0.3s ease;
+            overflow: hidden;
+            padding: 5px;
+        }
+        
+        .deped-logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .deped-logo img {
+            width: 180px;
+            height: 65px;
+            object-fit: contain;
         }
         
         .main-content {
             flex: 1;
-            padding: 20px;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500"><circle cx="250" cy="250" r="240" fill="none" stroke="%23e0e0e0" stroke-width="2"/><path d="M250,10 C380,10 490,120 490,250 C490,380 380,490 250,490 C120,490 10,380 10,250 C10,120 120,10 250,10 Z" fill="none" stroke="%23e0e0e0" stroke-width="2"/><circle cx="250" cy="250" r="200" fill="none" stroke="%23e0e0e0" stroke-width="2"/></svg>');
+            padding: 30px;
+            background-image: url('1bgremove.png');
             background-repeat: no-repeat;
-            background-position: center;
-            background-size: 80%;
+            background-position: top;
+            background-size: 60%;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -75,57 +129,113 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
             max-width: 1000px;
             margin: 0 auto;
             z-index: 1;
+            width: 100%;
+        }
+        
+        .top-row {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            width: 100%;
+        }
+        
+        .bottom-row {
+            margin-top: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
         }
         
         .card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 20px;
+            background-color: rgba(212, 210, 210, 0.9);
+            border-radius: 12px;
+            padding: 25px;
             width: 300px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
             text-align: center;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             min-height: 150px;
+            transition: all 0.3s ease;
+            border: 1px solid #eaeaea;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, #4a235a, #6c3483);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
         }
         
         .card h2 {
             color: #4a235a;
             font-size: 18px;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 8px;
+        }
+        
+        .card h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 2px;
+            background-color: #4a235a;
         }
         
         .card p {
-            color: #666;
+            color: #555;
             font-size: 14px;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
+            line-height: 1.5;
         }
         
         .card a {
-            color: #4a235a;
+            color: #2e86c1;
             text-decoration: none;
-            font-size: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 20px;
+            background-color: #f5f5f5;
+            transition: all 0.3s ease;
+            display: inline-block;
         }
         
         .card a:hover {
-            text-decoration: underline;
-        }
-        
-        .large-card {
-            width: 620px;
+            background-color: #2e86c1;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
         
         .footer {
-            background-color: #4a235a;
-            color: white;
+            background-color: rgba(212, 210, 210, 0.9);
+            color: black;
             padding: 10px;
             text-align: center;
-            font-size: 12px;
+            font-size: 13px;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #2e86c1;
         }
         
         .nav-buttons {
@@ -138,20 +248,34 @@
         }
         
         .nav-button {
-            background-color: #e0e0e0;
+            background-color: rgba(255, 255, 255, 0.8);
             border-radius: 50%;
-            width: 30px;
-            height: 30px;
+            width: 35px;
+            height: 35px;
             display: flex;
             justify-content: center;
             align-items: center;
             cursor: pointer;
             font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            border: 1px solid #eaeaea;
+        }
+        
+        .nav-button:hover {
+            background-color: #4a235a;
+            color: white;
+            transform: scale(1.1);
         }
         
         @media (max-width: 768px) {
-            .card, .large-card {
+            .card {
                 width: 90%;
+            }
+            
+            .top-row {
+                flex-direction: column;
+                align-items: center;
             }
             
             .header {
@@ -159,8 +283,19 @@
                 gap: 10px;
             }
             
-            .logo-container, .right-logos {
+            .logo-container, .right-logos, .title-container {
+                width: 100%;
                 justify-content: center;
+            }
+            
+            .deped-logo {
+                width: 110px;
+                height: 60px;
+            }
+            
+            .deped-logo img {
+                width: 180px;
+                height: 60px;
             }
         }
     </style>
@@ -168,52 +303,58 @@
 <body>
     <div class="header">
         <div class="logo-container">
-            <div class="logo"></div>
-            <div class="logo"></div>
-            <div class="logo"></div>
+            <div class="logo">
+                <img src="1.png" alt="Education icon">
+            </div>
+            <div class="logo">
+                <img src="2.png" alt="Briefcase icon">
+            </div>
+            <div class="logo">
+                <img src="logo3.png" alt="Balance icon">
+            </div>
         </div>
-        <div class="title">
-            MAGALLANES DISTRICT<br>
-            ONLINE SERVICES
+        <div class="title-container">
+            <div class="title">
+                CALOC-AN ELEMENTARY SCHOOL<br>
+                ONLINE SERVICES
+            </div>
         </div>
         <div class="right-logos">
-            <div class="logo">DepEd</div>
-            <div class="logo"></div>
+            <div class="deped-logo">
+                <img src="deped.jpeg" alt="DepEd Matatag Bagong Pilipinas logo">
+            </div>
         </div>
     </div>
     
     <div class="main-content">
         <div class="card-container">
-            <div class="card">
-                <h2>GradeEase</h2>
-                <p>Web-based GPA System for Streamlining Student Proficiency Report</p>
-                <a href="https://grade-ease.vercel.app/">Access GradeEase</a>
+            <div class="top-row">
+                <div class="card">
+                    <h2>GradeEase</h2>
+                    <p>Web-based GPA System for Streamlining Student Proficiency Report</p>
+                    <a href="https://grade-ease.vercel.app/">Access GradeEase →</a>
+                </div>
+                
+                <div class="card">
+                    <h2>Web-Based Class Record and SF10 System</h2>
+                    <p>Comprehensive digital record management for student performance tracking</p>
+                    <a href="#">Access System →</a>
+                </div>
             </div>
             
-            <div class="card">
-                <h2>Web-Based Class Record and SF10 System</h2>
-                <p></p>
-                <a href="#">Access System</a>
-            </div>
-        </div>
-        
-        <div class="nav-buttons">
-            <div class="nav-button">&lt;</div>
-            <div class="nav-button">&gt;</div>
-        </div>
-        
-        <div class="card-container" style="margin-top: 20px;">
-            <div class="card large-card">
-                <h2>Web-based Learner's Permanent Record Automation and Online Request System with SMS Notification</h2>
-                <p></p>
-                <a href="#">Access System</a>
+            <div class="bottom-row">
+                <div class="card">
+                    <h2>Web-based Learner's Permanent Record Automation</h2>
+                    <p>Streamlined record management with automated notifications</p>
+                    <a href="#">Access System →</a>
+                </div>
             </div>
         </div>
     </div>
     
     <div class="footer">
-        Magallanes District Online Services © 2023<br>
-        Department of Education
+        <p>2025 All Rights Reserved - Caloc-an Elementary School</p>
+        <p style="margin-top: 5px; font-size: 11px; opacity: 0.8;">Caloc-an, Magallanes, Province of Agusan Del Norte, Caraga, 8604 Philippines.</p>
     </div>
 </body>
 </html>
