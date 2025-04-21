@@ -150,7 +150,7 @@
         
         .card-container {
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
             justify-content: center;
             gap: 20px;
             max-width: 1200px;
@@ -164,22 +164,22 @@
         .top-row {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 20px;
             width: 100%;
         }
         
         .bottom-row {
-            margin-top: 30px;
-            width: 100%;
             display: flex;
             justify-content: center;
+            gap: 20px;
+            width: 100%;
         }
         
         .card {
             background: rgba(255, 255, 255, 0.95);
             border-radius: 16px;
             padding: 20px;
-            width: 300px;
+            width: 280px;
             box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.1),
                         -8px -8px 20px rgba(255, 255, 255, 0.8);
             text-align: center;
@@ -298,6 +298,11 @@
                 min-height: 10vh;
             }
             
+            .top-row, .bottom-row {
+                flex-direction: column;
+                align-items: center;
+            }
+            
             .card {
                 width: 90%;
                 min-height: 120px;
@@ -361,17 +366,23 @@
                 </div>
                 
                 <div class="card">
-                    <h2>Web-Based Class Record and SF10 System</h2>
-                    <p>Comprehensive digital record management for student performance tracking</p>
-                    <a href="#">Access System →</a>
+                    <h2>ECD Checklist System</h2>
+                    <p>Comprehensive monitoring and assessment tool for tracking children's developmental milestones</p>
+                    <a href="http://ecd-checklist.free.nf/php/index2.php">Access ECD System →</a>
                 </div>
             </div>
             
             <div class="bottom-row">
                 <div class="card">
                     <h2>Web-based Learner's Permanent Record Automation</h2>
-                    <p>Streamlined record management with automated notifications</p>
-                    <a href="#">Access System →</a>
+                    <p>Web-based Learner's Permanent Record Automation and Online Request System with SMS Notification</p>
+                    <a href="https://caloc-an-f137request.site/welcomeuser">Access System →</a>
+                </div>
+                
+                <div class="card">
+                    <h2>Web-Based Class Record and SF10 System</h2>
+                    <p>Comprehensive student data management and SF10 system for Caloc-an Elementary School</p>
+                    <a href="https://ces-record-forms.laravel.cloud/">Access System →</a>
                 </div>
             </div>
         </div>
